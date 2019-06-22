@@ -38,6 +38,7 @@ class ShopifyController extends Controller {
   }
 
   public function show(Request $request) {
+  	Log::debug("~~~~~~~~~~~~~~~~~~~ Was hit ~~~~~~~~~~~~~~~~~~");
   	return view('shopify');
   }
 
