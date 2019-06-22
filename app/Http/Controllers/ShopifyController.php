@@ -25,7 +25,7 @@ class ShopifyController extends Controller {
   		} else {
   			$apiKey = env('SHOPIFY_API_KEY');
 	  		$scopes = "read_products,read_customers,write_customers,read_orders,write_orders,read_draft_orders,write_draft_orders";
-	  		$redirectUri = "http://169.254.222.54:8000/shopify";
+	  		$redirectUri = "http://67.205.135.194/shopify";
 	  		$state = 'test_state';
 
 	  		$url = "https://{$request->shop}/admin/oauth/authorize?client_id={$apiKey}&scope={$scopes}&redirect_uri={$redirectUri}&state={$state}";
