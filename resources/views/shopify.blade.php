@@ -10,8 +10,14 @@
 			    });
 
 			    ShopifyPOS.ready(function(){
-			    	console.log('It said ready');
-					  alert("Ready");
+					  ShopifyPOS.fetchCart({
+					  	success: function(cart) {
+					  		ShopifyPOS.flashNotice(cart);
+					  	},
+					  	error: function(errors) {
+					  		ShopifyPOS.flashError(errors);
+					  	}
+					  })
 					});
 			  </script>
 

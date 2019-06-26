@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Zttp\Zttp;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
 class ShopifyController extends Controller {
@@ -38,7 +37,6 @@ class ShopifyController extends Controller {
   }
 
   public function show(Request $request) {
-  	Log::debug("~~~~~~~~~~~~~~~~~~~ Was hit ~~~~~~~~~~~~~~~~~~");
   	return view('shopify');
   }
 
