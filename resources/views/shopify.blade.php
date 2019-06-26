@@ -12,12 +12,23 @@
 			    ShopifyPOS.ready(function(){
 					  ShopifyPOS.fetchCart({
 					  	success: function(cart) {
-					  		ShopifyPOS.flashNotice(cart);
+					  		cart.addProperties({
+					  			'pockeyt_id': "pockeyt: 123e4567-e89b-12d3-a456-426655440000"
+					  		},{
+					  			success: function(cart) {
+					  				ShopifyPOS.flashNotice(cart);
+					  			},
+					  			error: function(errors) {
+					  				ShopifyPOS.flashError(errors);
+					  			}
+					  		})
 					  	},
 					  	error: function(errors) {
 					  		ShopifyPOS.flashError(errors);
 					  	}
-					  })
+					  });
+
+
 					});
 			  </script>
 
