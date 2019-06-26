@@ -47,7 +47,7 @@ class ShopifyController extends Controller {
       "Content-Type" => "application/json",
       "Accept" => "application/json"
     ];
-    $response = (new HttpHandler())->get($url, $headers);
+    $response = Zttp::withOptions(['headers' => $headers])->get($url);
     dd($response->json());
   }
 
