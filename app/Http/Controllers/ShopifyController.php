@@ -40,6 +40,17 @@ class ShopifyController extends Controller {
   	return view('shopify');
   }
 
+  public function orders() {
+  	$url = 'https://pockeyt-test.myshopify.com/admin/api/2019-04/orders';
+    $headers = [
+      "X-Shopify-Access-Token: " . env("SHOPIFY_ACCESS_TOKEN"),
+      "Content-Type" => "application/json",
+      "Accept" => "application/json"
+    ];
+    $response = (new HttpHandler())->get($url, $headers);
+    dd($response->json());
+  }
+
 
 
   private function getAccessToken($request) {

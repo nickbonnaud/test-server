@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://cloud.lightspeedapp.com/oauth/authorize.php?response_type=code&client_id=e08e8332623ce25c85abd060fc0a5e52d62abc40c09ddf6612a5b9654bf8f6b7&scope=employee:all">Open Frame</a>
+                    <a href="{{ route('orders') }}">Do IT!</a>
                 </div>
             </div>
         </div>

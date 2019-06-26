@@ -26,3 +26,4 @@ Route::get('/oauth-test/sale', 'OauthController@sale');
 
 Route::get('/shopify', 'ShopifyController@oauth');
 Route::get('/shopify/open', 'ShopifyController@show');
+Route::get('/shopify/orders', 'ShopifyController@orders')->name('orders');
