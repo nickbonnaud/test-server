@@ -23,7 +23,7 @@ class ShopifyController extends Controller {
   			}
   		} else {
   			$apiKey = env('SHOPIFY_API_KEY');
-	  		$scopes = "read_products,read_customers,write_customers,read_orders,write_orders,read_draft_orders,write_draft_orders";
+	  		$scopes = "read_products,read_customers,write_customers,read_orders,read_draft_orders,write_draft_orders";
 	  		$redirectUri = "https://pockeyt-test.com/shopify";
 	  		$state = 'test_state';
 
