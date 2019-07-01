@@ -85,7 +85,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('orders') }}">Do IT!</a>
+                    <a href="{{ route('orders') }}">GET ORDERS</a>
+                    <a href="{{ route('webhook') }}">SETUP WEBHOOK</a>
                 </div>
             </div>
         </div>

@@ -92,4 +92,28 @@ class ShopifyController extends Controller {
 		}
 		return false;
 	}
+
+
+
+
+
+  public function webhook() {
+    $url = "https://pockeyt-test.myshopify.com/admin/api/2019-04/webhooks";
+    $body = [
+      'webhook' => [
+        'topic' => 'orders/paid',
+        'address' => env('APP_URL') . '/api/webhook/shopify',
+        'format' => 'json'
+      ]
+    ];
+
+    $headers = [
+      "X-Shopify-Access-Token" => env("SHOPIFY_ACCESS_TOKEN"),
+      "Content-Type" => "application/json",
+      "Accept" => "application/json"
+    ];
+
+    $response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
+    dd($response->json());
+  }
 }
