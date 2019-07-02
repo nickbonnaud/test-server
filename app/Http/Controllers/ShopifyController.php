@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Zttp\Zttp;
 use Illuminate\Http\Request;
+use Log;
 
 class ShopifyController extends Controller {
   
@@ -115,5 +116,10 @@ class ShopifyController extends Controller {
 
     $response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
     dd($response->json());
+  }
+
+  public function webhookPost(Request $request) {
+    Log::debug($request->all());
+    return response()->json(['success' => 'Received Webhook.'], 200);
   }
 }
