@@ -133,4 +133,16 @@ class ShopifyController extends Controller {
     $response = Zttp::withOptions(['headers' => $headers])->get($url);
     dd($response->json());
   }
+
+  public function deleteWebHook() {
+    $id = '458652450865';
+    $url = "https://pockeyt-test.myshopify.com/admin/api/2019-04/webhooks/{$id}";
+    $headers = [
+      "X-Shopify-Access-Token" => env("SHOPIFY_ACCESS_TOKEN"),
+      "Content-Type" => "application/json",
+      "Accept" => "application/json"
+    ];
+    $response = Zttp::withOptions(['headers' => $headers])->delete($url);
+    dd($response->json());
+  }
 }
