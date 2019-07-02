@@ -28,3 +28,4 @@ Route::get('/shopify', 'ShopifyController@oauth');
 Route::get('/shopify/open', 'ShopifyController@show');
 Route::get('/shopify/orders', 'ShopifyController@orders')->name('orders');
 Route::get('/webhook/setup', 'ShopifyController@webhook')->name('webhook');
+Route::get('/webhook/list', 'ShopifyController@listWebhooks')->name('list_webhooks');

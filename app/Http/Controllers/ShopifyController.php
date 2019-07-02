@@ -122,4 +122,15 @@ class ShopifyController extends Controller {
     Log::debug($request->all());
     return response()->json(['success' => 'Received Webhook.'], 200);
   }
+
+  public function listWebhooks() {
+    $url = "https://pockeyt-test.myshopify.com/admin/api/2019-04/webhooks";
+    $headers = [
+      "X-Shopify-Access-Token" => env("SHOPIFY_ACCESS_TOKEN"),
+      "Content-Type" => "application/json",
+      "Accept" => "application/json"
+    ];
+    $response = Zttp::withOptions(['headers' => $headers])->get($url);
+    dd($response->json());
+  }
 }
