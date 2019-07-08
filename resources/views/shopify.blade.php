@@ -13,7 +13,7 @@
 					  ShopifyPOS.fetchCart({
 					  	success: function(cart) {
 					  		cart.addProperties({
-					  			'pockeyt_id': "pockeyt: 123e4567-e89b-12d3-a456-426655440000"
+					  			'pockeyt_id': "123e4567-e89b-12d3-a456-426655440000"
 					  		},{
 					  			success: function(cart) {
 					  				ShopifyPOS.flashNotice(cart);
