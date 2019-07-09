@@ -105,6 +105,11 @@ class ShopifyController extends Controller {
         'topic' => 'orders/paid',
         'address' => env('APP_URL') . '/api/webhook/shopify',
         'format' => 'json'
+      ],
+      'webhook' => [
+        'topic' => 'refunds/create',
+        'address' => env('APP_URL') . '/api/webhook/shopify',
+        'format' => 'json'
       ]
     ];
 
@@ -136,7 +141,7 @@ class ShopifyController extends Controller {
   }
 
   public function deleteWebHook() {
-    $id = '458652450865';
+    $id = '458829398065';
     $url = "https://pockeyt-test.myshopify.com/admin/api/2019-04/webhooks/{$id}";
     $headers = [
       "X-Shopify-Access-Token" => env("SHOPIFY_ACCESS_TOKEN"),
