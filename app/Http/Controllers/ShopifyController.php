@@ -119,10 +119,8 @@ class ShopifyController extends Controller {
   }
 
   public function webhookPost(Request $request) {
-    Log::debug("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    Log::debug($request->headers->all());
-    Log::debug("***********************************************");
-    Log::debug($request->getContent());
+    $calcHmac = base64_encode(hash_hmac('sha256', $request->getContent(), env('SHOPIFY_SECRET_KEY'), true));
+    Log::debug(hash_equals($calcHmac, $request->header('x-shopify-hmac-sha256')));
     return response()->json(['success' => 'Received Webhook.'], 200);
   }
 
