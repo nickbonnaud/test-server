@@ -99,10 +99,16 @@ class ShopifyController extends Controller {
 
 
   public function webhook() {
+    $responseOne = $this->registerWebhook("orders/paid");
+    $responseTwo = $this->registerWebhook("refunds/create");
+    dd($responseOne, $responseTwo);
+  }
+
+  private function registerWebhook($type) {
     $url = "https://pockeyt-test.myshopify.com/admin/api/2019-04/webhooks";
     $body = [
       'webhook' => [
-        'topic' => 'orders/paid,refunds/create',
+        'topic' => $type,
         'address' => env('APP_URL') . '/api/webhook/shopify',
         'format' => 'json'
       ]
@@ -115,7 +121,6 @@ class ShopifyController extends Controller {
     ];
 
     $response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
-    dd($response->json());
   }
 
   public function webhookPost(Request $request) {
