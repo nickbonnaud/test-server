@@ -121,6 +121,8 @@ class ShopifyController extends Controller {
   public function webhookPost(Request $request) {
     Log::debug("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     Log::debug($request->headers->all());
+    Log::debug("***********************************************");
+    Log::debug($request->getContent());
     return response()->json(['success' => 'Received Webhook.'], 200);
   }
 
