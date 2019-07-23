@@ -86,6 +86,7 @@
 
                 <div class="links">
                     <a href="{{ route('vend_oauth') }}">SETUP OAUTH</a>
+                    <a href="{{ route('vend_webhook') }}">WEBHOOK</a>
                 </div>
             </div>
         </div>

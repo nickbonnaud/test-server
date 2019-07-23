@@ -21,5 +21,6 @@ Route::post("mailgun/test", "MailgunController@store");
 Route::prefix('business')->group(function() {
 	Route::prefix('pos')->group(function() {
 		Route::get('vend/oauth', 'Business\VendAccountController@store')->name('vend_oauth');
+		Route::get('vend/webhook', 'Business\VendAccountController@setUpWebhook')->name('vend_webhook');
 	});
 });

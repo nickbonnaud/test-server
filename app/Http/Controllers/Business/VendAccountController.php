@@ -16,6 +16,26 @@ class VendAccountController extends Controller {
 		}
 	}
 
+	public function setUpWebhook() {
+		$domainPrefix = env('VEND_DOMAIN_PREFIX');
+		$accessToken = env('VEND_ACCESS_TOKEN');
+
+		$url = "https://{$domainPrefix}.vendhq.com/api/webhooks";
+		$headers = [
+			'Content-Type' => 'application/x-www-form-urlencoded',
+			'Authorization' => "Bearer {$accessToken}"
+		];
+
+		$body = [
+			'url' => env('APP_URL') . '/api/webhook/vend',
+			'active' => true,
+			'type' => "sale.update"
+		];
+
+		$response = $this->createHttpHandler()->post($url, $headers, $body);
+		dd($response->json());
+	}
+
 	private function redirectOauth($request) {
 		$clientId = env('VEND_CLIENT_ID');
 		$redirectUrl = url('/api/business/pos/vend/oauth');
