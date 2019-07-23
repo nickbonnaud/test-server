@@ -33,8 +33,7 @@ class VendAccountController extends Controller {
 		];
 
 
-		$response = Zttp::asFormParams(['headers' => $headers])->post($url, $body);
-		dd($response->status());
+		$response = Zttp::asFormParams()->withHeaders($headers)->post($url, $body);
 		dd($response->json());
 	}
 
