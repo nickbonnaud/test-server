@@ -39,9 +39,7 @@ class VendAccountController extends Controller {
 
 	private function postAccessCode($domainPrefix, $code) {
 		$url = "https://{$domainPrefix}.vendhq.com/api/1.0/token";
-		$headers = [
-			"Content-Type" => "application/x-www-form-urlencoded",
-		];
+
 		$body = [
 			'code' => $code,
 			'client_id' => env('VEND_CLIENT_ID'),
@@ -50,9 +48,7 @@ class VendAccountController extends Controller {
 			'redirect_uri' => url('/api/business/pos/vend/oauth')
 		];
 
-		dd($body);
-
-		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
+		$response = Zttp::asFormParams()->post($url, $body);
 		dd($response->json());
 	}
 }
