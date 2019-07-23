@@ -22,7 +22,6 @@ class VendAccountController extends Controller {
 
 		$url = "https://{$domainPrefix}.vendhq.com/api/webhooks";
 		$headers = [
-			'Content-Type' => 'application/x-www-form-urlencoded',
 			'Authorization' => "Bearer {$accessToken}"
 		];
 
@@ -32,15 +31,8 @@ class VendAccountController extends Controller {
 			'type' => "sale.update"
 		];
 
-		$test = [
-			'url' => $url,
-			'headers' => $headers,
-			'body' => $body
-		];
 
-		dd($test);
-
-		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
+		$response = Zttp::asFormParams(['headers' => $headers])->post($url, $body);
 		dd($response->json());
 	}
 
