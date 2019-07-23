@@ -32,6 +32,14 @@ class VendAccountController extends Controller {
 			'type' => "sale.update"
 		];
 
+		$test = [
+			'url' => $url,
+			'headers' => $headers,
+			'body' => $body
+		];
+
+		dd($test);
+
 		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
 		dd($response->json());
 	}
