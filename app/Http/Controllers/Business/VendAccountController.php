@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Business;
 
+use Zttp\Zttp;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -49,7 +50,7 @@ class VendAccountController extends Controller {
 			'redirect_uri' => url('/api/business/pos/vend/oauth')
 		];
 
-		$response = $this->createHttpHandler()->post($url, $headers, $body);
+		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
 		dd($response->json());
 	}
 }
