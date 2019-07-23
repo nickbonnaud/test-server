@@ -22,6 +22,7 @@ class VendAccountController extends Controller {
 
 		$url = "https://{$domainPrefix}.vendhq.com/api/webhooks";
 		$headers = [
+			'Content-Type' => 'application/x-www-form-urlencoded',
 			'Authorization' => "Bearer {$accessToken}"
 		];
 
