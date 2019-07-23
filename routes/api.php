@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::post("webhook/shopify", 'ShopifyController@webhookPost');
 
 Route::post("mailgun/test", "MailgunController@store");
+
+
+Route::prefix('business')->group(function() {
+	Route::prefix('pos')->group(function() {
+		Route::get('vend/oauth', 'Business\VendAccountController@store')->name('vend_oauth');
+	});
+});
