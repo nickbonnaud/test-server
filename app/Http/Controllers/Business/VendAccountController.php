@@ -32,7 +32,7 @@ class VendAccountController extends Controller {
 			'type' => "sale.update"
 		];
 
-		$response = $this->createHttpHandler()->post($url, $headers, $body);
+		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
 		dd($response->json());
 	}
 
