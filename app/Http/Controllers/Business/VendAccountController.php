@@ -50,6 +50,8 @@ class VendAccountController extends Controller {
 			'redirect_uri' => url('/api/business/pos/vend/oauth')
 		];
 
+		dd($body);
+
 		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
 		dd($response->json());
 	}
