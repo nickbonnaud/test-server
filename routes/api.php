@@ -24,3 +24,7 @@ Route::prefix('business')->group(function() {
 		Route::get('vend/webhook', 'Business\VendAccountController@setUpWebhook')->name('vend_webhook');
 	});
 });
+
+Route::prefix('webhook')->group(function() {
+	Route::post('vend', 'Webhook\VendController@store');
+});
