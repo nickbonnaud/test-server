@@ -42,8 +42,10 @@ class VendRequest extends FormRequest {
     Log::info($this->getContent());
 
     $calcHash = hash_hmac($algo, $this->getContent(), env('VEND_SECRET'), true);
+    Log::info($calcHash);
     Log::info(hash_equals($calcHash, $signature));
 
+    Log::info('done');
     return hash_equals($calcHash, $signature);
   }
 }
