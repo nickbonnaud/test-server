@@ -29,23 +29,17 @@ class VendRequest extends FormRequest {
   }
 
   private function verifyHeaders() {
-    Log::info($this->all());
     return  $this->headers->has('X-Signature') && $this->checkHeaderSignature();
   }
 
   private function checkHeaderSignature() {
     $algo = strtolower(Str::after($this->header('X-Signature'), 'algorithm=HMAC-'));
-    Log::info($algo);
-
     $signature = Str::before(Str::after($this->header('X-Signature'), "signature="), ',algorithm');
-    Log::info($signature);
-    Log::info($this->getContent());
 
     $calcHash = hash_hmac($algo, $this->getContent(), env('VEND_SECRET'), true);
     Log::info($calcHash);
-    Log::info(hash_equals($calcHash, $signature));
-
-    Log::info('done');
+    $test = hash_equals($calcHash, $signature);
+    Log::info($test);
     return hash_equals($calcHash, $signature);
   }
 }
