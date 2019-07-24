@@ -27,12 +27,14 @@ class VendAccountController extends Controller {
 		];
 
 		$body = [
-			'url' => env('APP_URL') . '/api/webhook/vend',
-			'active' => true,
-			'type' => "sale.update"
+			'data' => json_encode([
+				'url' => env('APP_URL') . '/api/webhook/vend',
+				'active' => true,
+				'type' => "sale.update"
+			])
 		];
 
-
+		dd($body);
 		$response = Zttp::asFormParams()->withHeaders($headers)->post($url, $body);
 		dd($response->json());
 	}
