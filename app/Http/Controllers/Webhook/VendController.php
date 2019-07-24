@@ -8,7 +8,7 @@ use App\Http\Requests\Webhook\VendRequest;
 
 class VendController extends Controller {
   
-  public function store(VendRequest $request) {
-  	Log::info($request->all());
+  public function store() {
+  	return response()->json(['success' => 'Received.'], 200);
 	}
 }
