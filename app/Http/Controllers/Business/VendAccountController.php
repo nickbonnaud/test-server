@@ -28,9 +28,9 @@ class VendAccountController extends Controller {
 
 		$body = [
 			'data' => json_encode([
-				'url' => env('APP_URL') . '/api/webhook/vend',
+				'url' => env('APP_URL') . '/api/webhook/vend/product',
 				'active' => true,
-				'type' => "sale.update"
+				'type' => "product.update"
 			])
 		];
 

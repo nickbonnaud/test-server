@@ -27,4 +27,5 @@ Route::prefix('business')->group(function() {
 
 Route::prefix('webhook')->group(function() {
 	Route::post('vend', 'Webhook\VendController@store');
+	Route::post('vend/product', 'Webhook\VendController@storeProduct');
 });
