@@ -35,7 +35,7 @@ class VendRequest extends FormRequest {
   private function checkHeaderSignature() {
     $algo = strtolower(Str::after($this->header('X-Signature'), 'algorithm=HMAC-'));
     Log::info($algo);
-    $signature = Str::before(Str::after($this->header('X-Signature'), "signature="), ',algorithm');
+    $signature = Str::before(Str::after($this->header('X-Signature'), "signature="), ',');
     Log::info($signature);
 
     $calcHash = hash_hmac($algo, $this->getContent(), env('VEND_SECRET'));
