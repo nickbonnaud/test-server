@@ -29,18 +29,28 @@ class VendRequest extends FormRequest {
   }
 
   private function verifyHeaders() {
-    Log::info($this->header());
-    Log::info($this->getContent());
-    Log::info($this->all());
-    return  $this->headers->has('X-Signature') && $this->checkHeaderSignature();
+    return $this->headers->has('X-Signature') && $this->checkHeaderSignature();
   }
 
   private function checkHeaderSignature() {
     $algo = strtolower(Str::after($this->header('X-Signature'), 'algorithm=HMAC-'));
+    Log::info($algo);
     $signature = Str::before(Str::after($this->header('X-Signature'), "signature="), ',algorithm');
+    Log::info($signature);
 
     $calcHash = hash_hmac($algo, $this->getContent(), env('VEND_SECRET'));
-    $test = hash_equals($calcHash, $signature);
+    Log::info(json_encode(hash_equals($calcHash, $signature)));
+
+    $calcHash = hash_hmac($algo, $this->getContent(), env('VEND_SECRET'), true);
+    Log::info(json_encode(hash_equals($calcHash, $signature)));
+
+    $calcHash = hash_hmac($algo, json_encode($this->all()), env('VEND_SECRET'));
+    Log::info(json_encode(hash_equals($calcHash, $signature)));
+
+    $calcHash = hash_hmac($algo, json_encode($this->all()), env('VEND_SECRET'), true);
+    Log::info(json_encode(hash_equals($calcHash, $signature)));
+
+
     return hash_equals($calcHash, $signature);
   }
 }
