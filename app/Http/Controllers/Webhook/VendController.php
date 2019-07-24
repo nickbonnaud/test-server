@@ -12,7 +12,7 @@ class VendController extends Controller {
   	return response()->json(['success' => 'Received.'], 200);
 	}
 
-	public function storeProduct() {
+	public function storeProduct(VendRequest $request) {
 		Log::info("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		return response()->json(['success' => 'Received.'], 200);
 	}
