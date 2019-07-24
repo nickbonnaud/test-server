@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Webhook;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Http\requests\Webhook\VendRequest;
+use App\Http\Requests\Webhook\VendRequest;
 
 class VendController extends Controller {
   
