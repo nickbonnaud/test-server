@@ -29,7 +29,7 @@ class VendRequest extends FormRequest {
   }
 
   private function verifyHeaders() {
-    Log::info($this->headers());
+    Log::info($this->header());
     Log::info($this->getContent());
     Log::info($this->all());
     return  $this->headers->has('X-Signature') && $this->checkHeaderSignature();
