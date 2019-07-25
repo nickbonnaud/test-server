@@ -88,7 +88,7 @@ class VendAccountController extends Controller {
 			'Content-Type' => 'application/json',
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
 		];
-		$response = $this->createHttpHandler()->post($url, $headers, $body);
+		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
 		dd($response);
 	}
 }
