@@ -73,4 +73,22 @@ class VendAccountController extends Controller {
 		$response = Zttp::asFormParams()->post($url, $body);
 		dd($response->json());
 	}
+
+	public function createCustomer() {
+		$url = "https://pockeyttest.vendhq.com/api/2.0/customers";
+		$body = [
+			'first_name' => "John",
+			'last_name' => "Smith",
+			'email' => "john@pockeyt.com",
+			'note' => env('BUSINESS_NAME') . " Customer",
+			'custom_field_1' => "fake_identifier"
+		];
+
+		$headers = [
+			'Content-Type' => 'application/json',
+			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
+		];
+		$response = $this->createHttpHandler()->post($url, $headers, $body);
+		dd($response);
+	}
 }
