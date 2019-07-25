@@ -105,7 +105,7 @@ class VendAccountController extends Controller {
 			"Content-Type" => "application/x-www-form-urlencoded",
 		];
 
-		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
+		$response = Zttp::asFormParams()->withHeaders($headers)->post($url, $body);
 		dd($response->json());
 	}
 }
