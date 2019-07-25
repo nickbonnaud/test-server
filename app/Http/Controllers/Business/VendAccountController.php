@@ -89,6 +89,23 @@ class VendAccountController extends Controller {
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
 		];
 		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
-		dd($response);
+		dd($response->json());
+	}
+
+	public function refreshToken() {
+		$url = "https://pockeyttest.vendhq.com/api/1.0/token";
+		$body = [
+			'refresh_token' => env('VEND_REFRESH_TOKEN'),
+			'client_id' => env('VEND_CLIENT_ID'),
+			'client_secret' => env('VEND_SECRET'),
+			'grant_type' => 'refresh_token',
+		];
+
+		$headers = [
+			"Content-Type" => "application/x-www-form-urlencoded",
+		];
+
+		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
+		dd($response->json());
 	}
 }
