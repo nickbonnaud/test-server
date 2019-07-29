@@ -25,6 +25,7 @@ Route::prefix('business')->group(function() {
 
 		Route::get('vend/customer', 'Business\VendAccountController@createCustomer')->name('create_customer');
 		Route::get('vend/refresh', 'Business\VendAccountController@refreshToken')->name('refresh_token');
+		Route::get('vend/customer/delete', 'Business\VendAccountController@deleteCustomer')->name('delete_customer');
 	});
 });
 

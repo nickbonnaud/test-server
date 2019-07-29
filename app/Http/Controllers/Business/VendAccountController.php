@@ -77,11 +77,11 @@ class VendAccountController extends Controller {
 	public function createCustomer() {
 		$url = "https://pockeyttest.vendhq.com/api/2.0/customers";
 		$body = [
-			'first_name' => "John",
-			'last_name' => "Smith",
-			'email' => "john@pockeyt.com",
+			'first_name' => "Delete",
+			'last_name' => "Customer",
+			'email' => "delete@pockeyt.com",
 			'note' => env('BUSINESS_NAME') . " Customer",
-			'custom_field_1' => "fake_identifier"
+			'custom_field_1' => "nvjcdbvdiqjiv"
 		];
 
 		$headers = [
@@ -106,6 +106,17 @@ class VendAccountController extends Controller {
 		];
 
 		$response = Zttp::asFormParams()->withHeaders($headers)->post($url, $body);
+		dd($response->json());
+	}
+
+	public function deleteCustomer() {
+		$url = "https://pockeyttest.vendhq.com/api/2.0/customers/<customer_id>";
+		$headers = [
+			'Content-Type' => 'application/json',
+			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
+		];
+
+		$response = Zttp::withOptions(['headers' => $headers])->delete($url);
 		dd($response->json());
 	}
 }

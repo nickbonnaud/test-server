@@ -89,6 +89,7 @@
                     <a href="{{ route('vend_webhook') }}">WEBHOOK</a>
                     <a href="{{ route('create_customer') }}">CREATE CUSTOMER</a>
                     <a href="{{ route('refresh_token') }}">REFRESH TOKEN</a>
+                    <a href="{{ route('delete_customer') }}">DELETE CUSTOMER</a>
                 </div>
             </div>
         </div>
