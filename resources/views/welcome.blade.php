@@ -90,6 +90,7 @@
                     <a href="{{ route('refresh_token') }}">REFRESH TOKEN</a>
                     <a href="{{ route('list_products') }}">LIST PRODUCTS</a>
                     <a href="{{ route('get_product') }}">GET PRODUCT</a>
+                    <a href="{{ route('list_sales') }}">LIST SALES</a>
                 </div>
             </div>
         </div>

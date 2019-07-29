@@ -26,6 +26,7 @@ Route::prefix('business')->group(function() {
 		Route::get('vend/refresh', 'Business\VendAccountController@refreshToken')->name('refresh_token');
 		Route::get('vend/products', 'Business\VendAccountController@listProducts')->name('list_products');
 		Route::get('vend/product', 'Business\VendAccountController@getProduct')->name('get_product');
+		Route::get('vend/sales', 'Business\VendAccountController@listSales')->name('list_sales');
 	});
 });
 

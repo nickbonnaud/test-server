@@ -103,7 +103,18 @@ class VendAccountController extends Controller {
 	}
 
 	public function getProduct() {
-		$url = "https://pockeyttest.vendhq.com/api/2.0/products/<product_id>";
+		$url = "https://pockeyttest.vendhq.com/api/2.0/products/0af7b240-abf0-11e9-fb5b-ad7e3cb470d8";
+		$headers = [
+			'Content-Type' => 'application/json',
+			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
+		];
+
+		$response = Zttp::withOptions(['headers' => $headers])->get($url);
+		dd($response->json());
+	}
+
+	public function listSales() {
+		$url = "https://pockeyttest.vendhq.com/api/2.0/sales";
 		$headers = [
 			'Content-Type' => 'application/json',
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
