@@ -77,7 +77,7 @@ class VendAccountController extends Controller {
 	public function createCustomer() {
 		$url = "https://pockeyttest.vendhq.com/api/2.0/customers";
 		$body = [
-			'first_name' => "Delete",
+			'first_name' => "Final",
 			'last_name' => "Customer",
 			'email' => "delete@pockeyt.com",
 			'note' => env('BUSINESS_NAME') . " Customer",
