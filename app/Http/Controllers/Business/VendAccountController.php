@@ -103,7 +103,7 @@ class VendAccountController extends Controller {
 	}
 
 	public function getProduct() {
-		$url = "https://pockeyttest.vendhq.com/api/2.0/products/0af7b240-abf0-11e9-fb5b-ad7e3cb470d8";
+		$url = "https://pockeyttest.vendhq.com/api/2.0/products/0af7b240-abf0-11e9-fb5b-ad7e3d5bd0b7";
 		$headers = [
 			'Content-Type' => 'application/json',
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
