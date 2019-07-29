@@ -74,24 +74,6 @@ class VendAccountController extends Controller {
 		dd($response->json());
 	}
 
-	public function createCustomer() {
-		$url = "https://pockeyttest.vendhq.com/api/2.0/customers";
-		$body = [
-			'first_name' => "Final",
-			'last_name' => "Customer",
-			'email' => "delete@pockeyt.com",
-			'note' => env('BUSINESS_NAME') . " Customer",
-			'custom_field_1' => "nvjcdbvdiqjiv"
-		];
-
-		$headers = [
-			'Content-Type' => 'application/json',
-			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
-		];
-		$response = Zttp::withOptions(['headers' => $headers])->post($url, $body);
-		dd($response->json());
-	}
-
 	public function refreshToken() {
 		$url = "https://pockeyttest.vendhq.com/api/1.0/token";
 		$body = [
@@ -109,14 +91,25 @@ class VendAccountController extends Controller {
 		dd($response->json());
 	}
 
-	public function deleteCustomer() {
-		$url = "https://pockeyttest.vendhq.com/api/2.0/customers/0af7b240-abf0-11e9-fb5b-b2400443e889";
+	public function listProducts() {
+		$url = "https://pockeyttest.vendhq.com/api/2.0/products";
 		$headers = [
 			'Content-Type' => 'application/json',
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
 		];
 
-		$response = Zttp::withOptions(['headers' => $headers])->delete($url);
+		$response = $Zttp::withOptions(['headers' => $headers])->get($url);
+		dd($response->json());
+	}
+
+	public function getProduct() {
+		$url = "https://pockeyttest.vendhq.com/api/2.0/products/<product_id>";
+		$headers = [
+			'Content-Type' => 'application/json',
+			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
+		];
+
+		$response = $Zttp::withOptions(['headers' => $headers])->get($url);
 		dd($response->json());
 	}
 }

@@ -23,9 +23,9 @@ Route::prefix('business')->group(function() {
 		Route::get('vend/oauth', 'Business\VendAccountController@store')->name('vend_oauth');
 		Route::get('vend/webhook', 'Business\VendAccountController@setUpWebhook')->name('vend_webhook');
 
-		Route::get('vend/customer', 'Business\VendAccountController@createCustomer')->name('create_customer');
 		Route::get('vend/refresh', 'Business\VendAccountController@refreshToken')->name('refresh_token');
-		Route::get('vend/customer/delete', 'Business\VendAccountController@deleteCustomer')->name('delete_customer');
+		Route::get('vend/products', 'Business\VendAccountController@listProducts')->name('list_products');
+		Route::get('vend/product', 'Business\VendAccountController@getProduct')->name('get_product');
 	});
 });
 

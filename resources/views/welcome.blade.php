@@ -87,9 +87,9 @@
                 <div class="links">
                     <a href="{{ route('vend_oauth') }}">SETUP OAUTH</a>
                     <a href="{{ route('vend_webhook') }}">WEBHOOK</a>
-                    <a href="{{ route('create_customer') }}">CREATE CUSTOMER</a>
                     <a href="{{ route('refresh_token') }}">REFRESH TOKEN</a>
-                    <a href="{{ route('delete_customer') }}">DELETE CUSTOMER</a>
+                    <a href="{{ route('list_products') }}">LIST PRODUCTS</a>
+                    <a href="{{ route('get_product') }}">GET PRODUCT</a>
                 </div>
             </div>
         </div>
