@@ -110,7 +110,7 @@ class VendAccountController extends Controller {
 	}
 
 	public function deleteCustomer() {
-		$url = "https://pockeyttest.vendhq.com/api/2.0/customers/<customer_id>";
+		$url = "https://pockeyttest.vendhq.com/api/2.0/customers/0af7b240-abf0-11e9-fb5b-b23f3a5dcfdb";
 		$headers = [
 			'Content-Type' => 'application/json',
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
