@@ -98,7 +98,7 @@ class VendAccountController extends Controller {
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
 		];
 
-		$response = $Zttp::withOptions(['headers' => $headers])->get($url);
+		$response = Zttp::withOptions(['headers' => $headers])->get($url);
 		dd($response->json());
 	}
 
@@ -109,7 +109,7 @@ class VendAccountController extends Controller {
 			'Authorization' => "Bearer " . env('VEND_ACCESS_TOKEN')
 		];
 
-		$response = $Zttp::withOptions(['headers' => $headers])->get($url);
+		$response = Zttp::withOptions(['headers' => $headers])->get($url);
 		dd($response->json());
 	}
 }
